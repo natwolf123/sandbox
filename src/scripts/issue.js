@@ -11,7 +11,7 @@ function sendFeedback() {
     };
     xhttp.open("POST", "https://api.github.com/repos/natwolf123/sandbox/issues");
     xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.setRequestHeader("Authorization", "token c8db235df627a130e63f34ac63eb45130cd698ca");
+    xhttp.setRequestHeader("Authorization", "token f81719eb21ac4bb4794a1a995c16bd8fbb788fde ");
     //xhttp.send();
      xhttp.send(jsonFeedback);
 };
