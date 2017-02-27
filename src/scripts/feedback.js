@@ -1,4 +1,4 @@
-function sendFeedback() {
+function sendIssueFeedback() {
     var feedback = {
       title: document.getElementById('text-input').value,
       body: document.getElementById('text-area').value,
@@ -13,4 +13,17 @@ function sendFeedback() {
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.setRequestHeader("Authorization", "token " + document.getElementById("text-token").value);
     xhttp.send(jsonFeedback);
+};
+
+function sendEmailFeedback(){
+  // Change to your service ID, or keep using the default service
+  var service_id = "default_service";
+  var template_id = "feedback";
+
+  emailjs.sendForm(service_id,template_id,"feedbackForm")
+  	.then(function(){
+    	alert("Feedback Sent!");
+    }, function(err) {
+       alert("Send email failed!\r\n Response:\n " + JSON.stringify(err));
+    });
 };

@@ -3,17 +3,23 @@
   <head>
     <meta charset="utf-8">
     <title>A Test Github page hooking into GitHubApi</title>
-    <script type="text/javascript" src="src/scripts/issue.js"></script>
+    <script type="text/javascript" src="src/scripts/feedback.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("user_MyJ5PKdfXFMo7J24n7F4b");
+       })();
+    </script>
   </head>
   <body>
     <div class="contianer">
       <div class="row center-block">
         <div class="col-md-5">
           <h3>Let's create a github issue</h3>
-          <form>
+          <form id="feedbackForm">
             <div class="form-group">
-              <label for="text-token">Personal Access Token</label>
+              <label for="text-token">Email OR Token</label>
               <input type="text" name="text-token" id="text-token" class="form-control"></input>
             </div>
             <div class="form-group">
@@ -24,7 +30,8 @@
               <label for="text-area">Issue Content</label>
               <textarea class="form-control" rows="4" id="text-area" name="text-area"></textarea>
             </div>
-            <button type="button" class="btn btn-primary" onClick="sendFeedback()">Send Feedback</button>
+            <button type="button" class="btn btn-primary" onClick="sendEmailFeedback()">Send Email</button>
+            <button type="button" class="btn btn-primary" onClick="sendIssueFeedback()">Create Issue</button>
           </form>
         </div>
       </div>
