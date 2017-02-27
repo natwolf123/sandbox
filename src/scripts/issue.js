@@ -12,6 +12,5 @@ function sendFeedback() {
     xhttp.open("POST", "https://api.github.com/repos/natwolf123/sandbox/issues");
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.setRequestHeader("Authorization", "token " + document.getElementById("text-token").value);
-    //xhttp.send();
-     xhttp.send(jsonFeedback);
+    xhttp.send(jsonFeedback);
 };
